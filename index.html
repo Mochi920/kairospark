@@ -3,53 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KAIROSPARK - 自動車業界</title>
+    <title>RECON</title>
+    <link rel="icon" href="data:,">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <h1>KAIROSPARK</h1>
-        <nav>
-            <ul>
-                <li><a href="#">自動車</a></li>
-                <li><a href="#">半導体</a></li>
-                <li><a href="#">AI</a></li>
-            </ul>
-        </nav>
+    <!-- ========== HEADER ========== -->
+    <header class="header">
+        <div class="header-inner">
+            <div class="header-left">
+                <h1 class="logo">RECON</h1>
+                <span class="logo-tagline">Intelligence Engine</span>
+            </div>
+            <div class="header-right">
+                <span id="current-industry-label" class="current-industry">自動車</span>
+                <button id="hamburger-btn" class="hamburger-btn" aria-label="メニューを開く">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
     </header>
 
+    <!-- ========== MEGA MENU ========== -->
+    <div id="mega-menu" class="mega-menu">
+        <div class="mega-menu-inner">
+            <p class="mega-menu-label">// 業界を選択</p>
+            <div id="industry-grid" class="industry-grid">
+                <button class="industry-btn active" data-industry="自動車">
+                    <span class="industry-num">01</span>
+                    <span class="industry-name">自動車</span>
+                </button>
+                <button class="industry-btn" data-industry="航空宇宙">
+                    <span class="industry-num">02</span>
+                    <span class="industry-name">航空宇宙</span>
+                </button>
+                <button class="industry-btn" data-industry="船舶">
+                    <span class="industry-num">03</span>
+                    <span class="industry-name">船舶</span>
+                </button>
+                <button class="industry-btn" data-industry="防衛">
+                    <span class="industry-num">04</span>
+                    <span class="industry-name">防衛</span>
+                </button>
+                <button class="industry-btn" data-industry="産業機械">
+                    <span class="industry-num">05</span>
+                    <span class="industry-name">産業機械</span>
+                </button>
+                <button class="industry-btn" data-industry="精密機器">
+                    <span class="industry-num">06</span>
+                    <span class="industry-name">精密機器</span>
+                </button>
+                <button class="industry-btn" data-industry="医療機器">
+                    <span class="industry-num">07</span>
+                    <span class="industry-name">医療機器</span>
+                </button>
+                <button class="industry-btn" data-industry="エレクトロニクス">
+                    <span class="industry-num">08</span>
+                    <span class="industry-name">エレクトロニクス</span>
+                </button>
+                <button class="industry-btn" data-industry="エネルギー">
+                    <span class="industry-num">09</span>
+                    <span class="industry-name">エネルギー</span>
+                </button>
+                <button class="industry-btn" data-industry="AI/IT">
+                    <span class="industry-num">10</span>
+                    <span class="industry-name">AI / IT</span>
+                </button>
+                <button class="industry-btn" data-industry="データセンター">
+                    <span class="industry-num">11</span>
+                    <span class="industry-name">データセンター</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== MAIN ========== -->
     <main>
-        <section id="industry-trends">
-            <h2>業界トレンドサマリー</h2>
-            <p>ここに、AIが要約した自動車業界の最新トレンドが表示されます。</p>
-        </section>
+        <!-- Sub Navigation -->
+        <div class="sub-nav-wrapper">
+            <nav id="sub-nav" class="sub-nav"></nav>
+        </div>
 
-        <section id="news-feed">
-            <h2>最新ニュース</h2>
-            <article>
-                <h3>トヨタ、次世代EVの生産計画を発表</h3>
-                <p>2026年までに新たなプラットフォームを導入し、航続距離を大幅に向上させる計画。サプライヤーとの連携強化が鍵となる。</p>
-                <span>2025/10/24 - 日経新聞</span>
-            </article>
-            <article>
-                <h3>Bosch、自動運転レベル4対応の新センサーを公開</h3>
-                <p>従来のセンサーより高精度で、悪天候にも強いLiDARセンサー。自動車メーカー各社が採用を検討。</p>
-                <span>2025/10/23 - Automotive News</span>
-            </article>
-        </section>
+        <!-- Content Area -->
+        <div class="content-area">
 
-        <section id="ai-search">
-            <h2>AI検索エンジン</h2>
-            <input type="text" placeholder="例: EV電池のサプライチェーンについて">
-            <button>検索</button>
-        </section>
+            <!-- Home Content -->
+            <div id="industry-home-content" style="display:none;">
+
+                <!-- トレンドサマリー -->
+                <section class="card card--accent home-summary">
+                    <div class="card-label">TREND SUMMARY</div>
+                    <h2 class="card-title" id="home-trend-title">業界トレンドサマリー</h2>
+                    <p class="card-body">AIが要約した選択業界の最新トレンドが表示されます。</p>
+                    <div class="card-footer">フェーズ2で実装予定</div>
+                </section>
+
+                <!-- ビジネスマップ -->
+                <section class="card home-bizmap">
+                    <div class="card-label">BUSINESS MAP</div>
+                    <h2 class="card-title">ビジネスマップ</h2>
+                    <div class="bizmap-placeholder">
+                        <p class="card-body">業界の各社関係性マップが表示されます。</p>
+                        <div class="card-footer">フェーズ2で実装予定</div>
+                    </div>
+                </section>
+
+                <!-- カテゴリ別最新ニュース -->
+                <div class="home-news-label">
+                    <span class="section-mono">LATEST NEWS BY CATEGORY</span>
+                </div>
+                <div id="home-news-grid" class="home-news-grid">
+                    <p style="color:var(--text-muted);font-size:.85rem;padding:1rem 0;">読み込み中...</p>
+                </div>
+
+            </div>
+
+            <!-- News Content -->
+            <div id="news-content" style="display:none;">
+                <section id="news-summary" class="card"></section>
+                <section id="news-list" class="card"></section>
+            </div>
+
+            <!-- 天地人彼我 Content (placeholder for future implementation) -->
+            <div id="tcjhg-content" style="display:none;">
+                <div class="tcjhg-input-panel card">
+                    <div class="card-label">STEP 01 — 企業情報の入力</div>
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label class="input-label">企業名</label>
+                            <input type="text" class="input-field" placeholder="例：株式会社〇〇" id="input-company">
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">業界</label>
+                            <input type="text" class="input-field" placeholder="例：自動車部品メーカー" id="input-industry-text">
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">担当部署・課名</label>
+                            <input type="text" class="input-field" placeholder="例：開発設計部 CAE推進課" id="input-dept">
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">担当者の役割・役職</label>
+                            <input type="text" class="input-field" placeholder="例：シミュレーション担当（課長級）" id="input-role">
+                        </div>
+                        <div class="input-group input-group--full">
+                            <label class="input-label">As-Is（現状）</label>
+                            <textarea class="input-field input-textarea" placeholder="例：解析に1週間かかっている" id="input-asis"></textarea>
+                        </div>
+                        <div class="input-group input-group--full">
+                            <label class="input-label">To-Be（理想）</label>
+                            <textarea class="input-field input-textarea" placeholder="例：翌日には結果を出したい" id="input-tobe"></textarea>
+                        </div>
+                        <div class="input-group input-group--full">
+                            <label class="input-label">解決したいこと・議事録など</label>
+                            <textarea class="input-field input-textarea input-textarea--lg" placeholder="自由記述。個人名は入力しないでください。" id="input-memo"></textarea>
+                        </div>
+                    </div>
+                    <button class="btn-analyze" id="btn-analyze">
+                        <span class="btn-analyze-text">天地人彼我 を分析する</span>
+                        <span class="btn-analyze-arrow">→</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
     </main>
 
-    <footer>
-        <p>&copy; 2025 KAIROSPARK</p>
-    </footer>
-
-    <script type="module" src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
 </body>
 </html>
